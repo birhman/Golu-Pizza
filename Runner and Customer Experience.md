@@ -67,6 +67,7 @@ from timing
 group by order_id, runner_id
 order by runner_id;
 ```
+### The average speed for each runner varies significantly across deliveries, with some runners achieving speeds above 60 km/h. This suggests that factors like distance and delivery conditions affect speed. Analyzing the trends reveals potential areas for optimization in delivery routes and times to enhance overall efficiency.
 
 ## 7.What is the successful delivery percentage for each runner?
 
