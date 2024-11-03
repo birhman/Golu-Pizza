@@ -1,22 +1,22 @@
-### 1.How many pizzas were ordered?
+## 1.How many pizzas were ordered?
 
 ```sql
 select count(order_id) as total_orders from customer_orders;
 ```
 
-### 2.How many unique customer orders were made?
+## 2.How many unique customer orders were made?
 
 ```sql
 select count(distinct customer_id) as unique_customer_orders from customer_orders;
 ```
 
-### 3.How many successful orders were delivered by each runner?
+## 3.How many successful orders were delivered by each runner?
 
 ```sql
 select runner_id, count(*) as orders_by_runner from runner_orders where cancellation is null group by runner_id;
 ```
 
-### 4.How many of each type of pizza was delivered?
+## 4.How many of each type of pizza was delivered?
 
 ```sql
 select pizza_id, count(*) as pizza_ordered 
@@ -26,7 +26,7 @@ where r.cancellation is null
 group by c.pizza_id;
 ```
 
-### 5.How many Vegetarian and Meatlovers were ordered by each customer?
+## 5.How many Vegetarian and Meatlovers were ordered by each customer?
 
 ```sql
 select customer_id, pizza_name, count(*) as total_orders 
@@ -35,7 +35,7 @@ join pizza_names p on c.pizza_id = p.pizza_id
 group by customer_id, p.pizza_name
 ORDER BY customer_id, pizza_name;
 ```
-### 6.What was the maximum number of pizzas delivered in a single order?
+## 6.What was the maximum number of pizzas delivered in a single order?
 
 ```sql
 select 
@@ -48,7 +48,7 @@ group by co.order_id
 order by pizzas_delivered DESC
 limit 1;
 ```
-### 7.For each customer, how many delivered pizzas had at least 1 change and how many had no changes?
+## 7.For each customer, how many delivered pizzas had at least 1 change and how many had no changes?
 
 ```sql
 select customer_id, 
@@ -59,7 +59,7 @@ join runner_orders ro on co.order_id = ro.order_id
 where cancellation is null
 group by customer_id;
 ```
-### 8.How many pizzas were delivered that had both exclusions and extras?
+## 8.How many pizzas were delivered that had both exclusions and extras?
 
 ```sql
 select 
@@ -69,7 +69,7 @@ join runner_orders ro on co.order_id = ro.order_id
 where ro.cancellation is null;
 ```
 
-### 9.What was the total volume of pizzas ordered for each hour of the day?
+## 9.What was the total volume of pizzas ordered for each hour of the day?
 
 ```sql
 select 
@@ -79,7 +79,7 @@ from customer_orders
 group by order_hour
 order by total_pizzas_ordered desc;
 ```    
-### 10.What was the volume of orders for each day of the week?
+## 10.What was the volume of orders for each day of the week?
 
 ```sql
 select 
